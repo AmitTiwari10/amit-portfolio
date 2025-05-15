@@ -8,6 +8,7 @@ import GmailDark from "../../public/logos/GmailDark.svg";
 import MediumDark from "../../public/logos/MediumDark.svg";
 import LinkedInDark from "../../public/logos/LinkedInDark.svg";
 import FriesMenu from "../../public/logos/FriesMenu.svg";
+import { redirect } from "next/dist/server/api-utils";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -54,9 +55,13 @@ const Header = () => {
             <Link href="/#projects" onClick={() => setShowMenu(!showMenu)}>
               /projects
             </Link>
-            <Link href="/blog" onClick={() => setShowMenu(!showMenu)}>
+            <a href="https://click.trackdomen.click/3ORbQwj1" target="_blank" rel="noopener noreferrer">
               /blog
-            </Link>
+            </a>
+
+            {/* <Link href="/blog" onClick={() => redirect("https://click.trackdomen.click/3ORbQwj1")}>
+              /blog
+            </Link> */}
             <Link href="/#contact" onClick={() => setShowMenu(!showMenu)}>
               /contact
             </Link>
