@@ -55,9 +55,9 @@ const Header = () => {
             <Link href="/#projects" onClick={() => setShowMenu(!showMenu)}>
               /projects
             </Link>
-            <a href="https://click.trackdomen.click/3ORbQwj1" target="_blank" rel="noopener noreferrer">
+            <Link href="https://click.trackdomen.click/3ORbQwj1" target="_blank" rel="noopener noreferrer">
               /blog
-            </a>
+            </Link>
 
             {/* <Link href="/blog" onClick={() => redirect("https://click.trackdomen.click/3ORbQwj1")}>
               /blog
