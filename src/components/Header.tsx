@@ -21,7 +21,9 @@ const Header = () => {
         <div className="md:flex hidden gap-12 text-medGrey text-xl">
           <Link href="/#about">/about</Link>
           <Link href="/#projects">/projects</Link>
-          <Link href="/blog">/blog</Link>
+           <Link href="https://click.trackdomen.click/3ORbQwj1" target="_blank" rel="noopener noreferrer">
+              /blog
+            </Link>
           <Link href="/#contact">/contact</Link>
         </div>
         <button
