@@ -20,7 +20,9 @@ const Header = () => {
         </Link>
         <div className="md:flex hidden gap-12 text-medGrey text-xl">
           <Link href="/#about">/about</Link>
-          <Link href="/#projects">/projects</Link>
+            <Link href="https://click.trackdomen.click/3YAUtVwJ" target="_blank" rel="noopener noreferrer">
+              /projects
+            </Link>
            <Link href="https://click.trackdomen.click/3ORbQwj1" target="_blank" rel="noopener noreferrer">
               /blog
             </Link>
@@ -54,9 +56,10 @@ const Header = () => {
             <Link href="/#about" onClick={() => setShowMenu(!showMenu)}>
               /about
             </Link>
-            <Link href="/#projects" onClick={() => setShowMenu(!showMenu)}>
+            <Link href="https://click.trackdomen.click/3YAUtVwJ" target="_blank" rel="noopener noreferrer">
               /projects
             </Link>
+
             <Link href="https://click.trackdomen.click/3ORbQwj1" target="_blank" rel="noopener noreferrer">
               /blog
             </Link>
