@@ -15,6 +15,7 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const projects: any = await getProjects();
+  console.log("🚀 ~ Home ~ projects:", projects)
   return (
     <>
       <section id="#" className="h-screen w-full flex">
@@ -66,7 +67,7 @@ export default async function Home() {
             </p>
 
             <Link
-              href="https://drive.google.com/file/d/1BKEXTWjhZtiaCvthpQTY04QTqNyLg6zL/view?usp=sharing"
+              href="https://drive.google.com/file/d/1FvyeoO0Ynl9jiZS6OKMc2Yz9cu59X-6x/view?usp=sharing"
               className="border border-darkBlue md:px-9 md:py-3 px-6 py-2 rounded-full text-xl text-darkBlue mt-6"
               target="_blank"
             >
