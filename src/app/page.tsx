@@ -169,7 +169,7 @@ export default async function Home() {
                       <img
                         className="rounded-xl transition-transform duration-700 ease-in-out group-hover:scale-110"
                         src={card.image}
-                        alt={card.projectName}
+                        alt={"img"}
                       />
 
                       <a
@@ -192,17 +192,18 @@ export default async function Home() {
                     {/* Tags + Links */}
                     <div className="flex flex-col gap-4 justify-end p-6 border-t border-slate-200 dark:border-slate-700">
                       <div className="flex flex-wrap gap-2">
-                        {card.technologies.map((tag: any) => (
-                          <div
-                            key={tag}
-                            className="flex-shrink-0 border bg-darkBlue/10 dark:bg-darkBlue/20 border-darkBlue/20 rounded-full px-4 py-1.5 flex justify-center items-center transition-all duration-300 hover:bg-darkBlue hover:text-white"
-                          >
-                            <p className="text-darkBlue dark:text-slate-100 sm:text-sm text-xs font-medium">
-                              {tag}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
+  {card.technologies.map((tag: any) => (
+    <div
+      key={tag}
+      className="group flex-shrink-0 border bg-darkBlue/10 dark:bg-darkBlue/20 border-darkBlue/20 rounded-full px-4 py-1.5 flex justify-center items-center transition-all duration-300 hover:bg-darkBlue"
+    >
+      <p className="text-darkBlue dark:text-slate-100 sm:text-sm text-xs font-medium transition-colors duration-300 group-hover:text-white">
+        {tag}
+      </p>
+    </div>
+  ))}
+</div>
+
 
                       <div className="flex justify-end items-center gap-4">
                         <Link
