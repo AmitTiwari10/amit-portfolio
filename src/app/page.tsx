@@ -15,7 +15,6 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const projects: any = await getProjects();
-  console.log("🚀 ~ Home ~ projects:", projects)
   return (
     <>
       <section id="#" className="h-screen w-full flex">
@@ -58,12 +57,15 @@ export default async function Home() {
         <div className="flex flex-col lg:px-16 md:mt-20 mt-10 sm:px-10 px-6">
           <div className="flex flex-col flex-1 text-medGrey items-start justify-center gap-4 lg:px-20">
             <p className="text-4xl lg:text-5xl font-medium">
-              Hi, I am <span className="text-darkBlue">Amit, a Full Stack Developer</span>
+              Hi, I am{" "}
+              <span className="text-darkBlue">
+                Amit, a Full Stack Developer
+              </span>
             </p>
 
             <p className="text-xl lg:text-2xl lg:leading-[2.4rem] leading-[2rem] tracking-wide 2xl:w-11/12 w-full">
-              I design, code and engineer software applications focusing on creating efficient scalable solutions while writing
-              about code
+              I design, code and engineer software applications focusing on
+              creating efficient scalable solutions while writing about code
             </p>
 
             <Link
@@ -147,53 +149,82 @@ export default async function Home() {
         >
           <span className="text-4xl text-medGrey">projects</span>
 
-          <div className="xl:px-32 lg:px-12 md:px-10 sm:px-8 px-6 my-14">
-            <div className="w-full grid lg:grid-cols-2 grid-cols-1 gap-12 lg:gap-8 xl:gap-12">
+          <div className="xl:px-32 lg:px-16 md:px-12 sm:px-8 px-6 my-16">
+            <div className="w-full grid lg:grid-cols-2 grid-cols-1 gap-12 lg:gap-10 xl:gap-14">
               {(projects || []).map((card: any) => (
                 <div
                   key={card._id}
                   className="md:w-4/5 lg:w-full w-full flex flex-row"
                 >
                   <div className="sm:w-1/6 w-1/12"></div>
-                  <div className="w-full rounded-2xl text-medGrey flex flex-col justify-between"
-                  style={{boxShadow : "rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px, rgba(0, 0, 0, 0.07) 0px -3px 6px -2px"}}
+                  <div
+                    className="w-full rounded-2xl text-medGrey flex flex-col justify-between overflow-hidden bg-white dark:bg-slate-900 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+                    style={{
+                      boxShadow:
+                        "rgba(0, 0, 0, 0.05) 0px 6px 12px, rgba(0, 0, 0, 0.08) 0px 4px 8px",
+                    }}
                   >
-                    <div className="sm:-ml-14 -ml-8 mt-8 w-full drop-shadow-lg overflow-hidden relative group">
+                    {/* Image Section */}
+                    <div className=" p-10 mt-8 w-full overflow-hidden relative group rounded-xl">
                       <img
-                        className="transition-transform duration-500 group-hover:scale-[1.2]"
+                        className="rounded-xl transition-transform duration-700 ease-in-out group-hover:scale-110"
                         src={card.image}
-                        alt="img"
+                        alt={card.projectName}
                       />
-                      <a className="absolute bg-slate-800/30 group-hover:opacity-100 opacity-0 flex justify-center items-center bottom-0 left-0 w-full h-full" href={card?.projectLink || card?.githubLink} target="_blank" />
+
+                      <a
+                        className="absolute bg-slate-900/40 group-hover:opacity-100 opacity-0 transition-opacity duration-500 flex justify-center items-center bottom-0 left-0 w-full h-full"
+                        href={card?.projectLink || card?.githubLink}
+                        target="_blank"
+                      />
                     </div>
-                    <div className="flex flex-col w-full gap-2 p-4">
-                      <span className="sm:text-4xl text-3xl font-medium text-left">
+
+                    {/* Project Info */}
+                    <div className="flex flex-col w-full gap-3 p-6">
+                      <span className="sm:text-4xl text-3xl font-semibold text-left text-darkBlue dark:text-white tracking-tight">
                         {card.projectName}
                       </span>
-                      <p className="text-left w-full text-sm sm:text-base">
+                      <p className="text-left w-full text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
                         {card.description}
                       </p>
                     </div>
-                    <div className="flex flex-col gap-2 justify-end p-4">
+
+                    {/* Tags + Links */}
+                    <div className="flex flex-col gap-4 justify-end p-6 border-t border-slate-200 dark:border-slate-700">
                       <div className="flex flex-wrap gap-2">
                         {card.technologies.map((tag: any) => (
                           <div
                             key={tag}
-                            className="flex-shrink-0 border-2 bg-medGrey border-medGrey rounded-full text-darkBlue px-3 py-1 flex justify-center items-center"
+                            className="flex-shrink-0 border bg-darkBlue/10 dark:bg-darkBlue/20 border-darkBlue/20 rounded-full px-4 py-1.5 flex justify-center items-center transition-all duration-300 hover:bg-darkBlue hover:text-white"
                           >
-                            <p className="text-white sm:text-sm text-xs">
+                            <p className="text-darkBlue dark:text-slate-100 sm:text-sm text-xs font-medium">
                               {tag}
                             </p>
                           </div>
                         ))}
                       </div>
-                      <div className="flex justify-end items-center gap-3">
-                        <Link href={card.githubLink}>
-                          <Image src={GithubDark} alt="github" />
+
+                      <div className="flex justify-end items-center gap-4">
+                        <Link
+                          href={card.githubLink}
+                          className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        >
+                          <Image
+                            src={GithubDark}
+                            alt="github"
+                            className="w-6 h-6"
+                          />
                         </Link>
                         {card?.projectLink && (
-                          <Link href={card.projectLink}>
-                            <Image src={ExternalLink} alt="projectLink" />
+                          <Link
+                            href={card.projectLink}
+                            className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                          >
+                            <Image
+                              src={ExternalLink}
+                              alt="projectLink"
+                              className="w-6 h-6"
+                            />
                           </Link>
                         )}
                       </div>
@@ -212,10 +243,12 @@ export default async function Home() {
           <span className="text-4xl text-medGrey">get in touch</span>
 
           <div className="xl:px-40 lg:px-12 md:px-10 sm:px-8 px-6 my-14">
-            <div className="md:py-8 py-12 md:px-12 px-8 mt-8 bg-lightBlue rounded-2xl"
-            style={{
-              boxShadow: "rgba(173, 216, 230, 0.4) 0px 10px 15px -3px, rgba(173, 216, 230, 0.3) 0px 4px 6px -2px"
-            }}
+            <div
+              className="md:py-8 py-12 md:px-12 px-8 mt-8 bg-lightBlue rounded-2xl"
+              style={{
+                boxShadow:
+                  "rgba(173, 216, 230, 0.4) 0px 10px 15px -3px, rgba(173, 216, 230, 0.3) 0px 4px 6px -2px",
+              }}
             >
               <div className="flex flex-col md:flex-row gap-6 justify-evenly items-center">
                 <div className="flex flex-col gap-3 text-medGrey text-left md:w-1/3 w-full">
